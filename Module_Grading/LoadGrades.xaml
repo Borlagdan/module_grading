@@ -1,0 +1,67 @@
+﻿<Controls:MetroWindow x:Class="Module_Grading.LoadGrades"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
+        xmlns:local="clr-namespace:Module_Grading"
+        mc:Ignorable="d"
+        
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+                      
+        Title="LoadGrades" Height="600" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".20*" />
+            <RowDefinition Height=".10*" />
+            <RowDefinition Height=".50*" />
+            <RowDefinition Height=".20*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="20">
+            <Viewbox>
+                <TextBlock Text="Select Workbook to Load" />
+            </Viewbox>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <StackPanel VerticalAlignment="Center">
+                <ComboBox x:Name="cb_WorkBooks"
+                          Height="Auto"
+                          Width="250"
+                          materialDesign:HintAssist.Hint="Search Workbook"
+                          IsEditable="True"
+                          materialDesign:HintAssist.HintOpacity=".26"
+                          SelectionChanged="cb_WorkBooks_SelectionChanged" />
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <DataGrid x:Name="dgv_Grades" ColumnWidth="*"
+                                      CanUserSortColumns="True"
+                                      CanUserAddRows="False"
+                                      IsReadOnly="True"
+                                      AutoGenerateColumns="True"
+                                      materialDesign:DataGridAssist.CellPadding="13 8 8 8"
+                                      materialDesign:DataGridAssist.ColumnHeaderPadding="8"
+                                      ClipboardCopyMode="IncludeHeader" />
+        </Grid>
+
+        <Grid Grid.Row="3" Margin="20">
+            <Button x:Name="btn_Open"
+                    Height="Auto"
+                    Width="300"
+                    Foreground="White"
+                    FontSize="28"
+                    Content="OPEN"
+                    Click="btn_Open_Click" />
+        </Grid>
+    </Grid>
+</Controls:MetroWindow>
